@@ -12,11 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :restaurants do
-    member do
-      get :navigate
-      resources :reviews, only: [ :index, :new, :create ]
-    end
+  resources :restaurants, only: [ :index, :show, :new, :create ] do
+      resources :reviews, only: [ :new, :create ]
   end
-  resources :reviews, only: [ :show, :edit, :update, :destroy ]
 end

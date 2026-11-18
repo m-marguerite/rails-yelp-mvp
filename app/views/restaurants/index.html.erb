@@ -1,20 +1,47 @@
-<div class="container my-4">
-  <h1>Restaurants</h1>
+<% if false %>
+  <div class="container my-4">
+    <h1>Restaurants</h1>
 
-  <ul class="list-unstyled">
-    <% @restaurants.each do |restaurant| %>
-      <li class="d-flex align-items-center gap-2">
+    <ul class="list-unstyled">
+      <% @restaurants.each do |restaurant| %>
+        <li class="d-flex align-items-center gap-2">
 
-        <%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none" %>
+          <%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none" %>
 
-      </li>
+        </li>
+      <% end %>
+    </ul>
+
+    <hr>
+
+    <%= link_to new__path, class: "text-decoration-none" do %>
+      <i class="fa-solid fa-plus"></i> Add a new task
     <% end %>
-  </ul>
 
-  <hr>
+  </div>
+<% end %>
 
-  <%= link_to new_restaurant_path, class: "text-decoration-none" do %>
-    <i class="fa-solid fa-plus"></i> Add a new task
-  <% end %>
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Restaurants</h1>
+    <%= link_to "+ New restaurant", new_restaurant_path, class: "btn btn-primary" %>
+  </div>
 
+  <div class="row g-4">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <span class="badge text-bg-secondary align-self-start mb-2">
+              <%= restaurant.category.capitalize %>
+            </span>
+            <h5 class="card-title"><%= restaurant.name %></h5>
+            <p class="card-text text-muted mb-4"><%= restaurant.address %></p>
+            <%= link_to "See details", restaurant_path(restaurant),
+                        class: "btn btn-outline-primary mt-auto" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

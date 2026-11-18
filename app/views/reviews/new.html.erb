@@ -1,5 +1,16 @@
-<h1>New review</h1>
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="container my-5" style="max-width: 600px;">
+  <h1 class="mb-4">New review for <%= @restaurant.name %></h1>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :content, input_html: { rows: 4 } %>
+        <%= f.input :rating, collection: 0..5, include_blank: false %>
+        <%= f.submit "Submit review", class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to "← Back to restaurant", restaurant_path(@restaurant),
+              class: "d-inline-block mt-3 text-decoration-none" %>
+</div>

@@ -25,7 +25,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <%= link_to "🍽️ Yelp MVP", restaurants_path, class: "navbar-brand" %>
+      </div>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
