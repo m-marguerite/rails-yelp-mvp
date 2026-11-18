@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <h2><%= @restaurant.name %></h2>
+  <div class="card" style="background-color:#E0E0E0">
+    <div class="card-body">
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p><%= @restaurant.category %></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+    <% end %>
+  </ul>
+  <br>
+
+  <hr>
+
+  <%= link_to restaurants_path, class: "text-decoration-none" do %>
+    <i class="fa-solid fa-arrow-left"></i> Back to list
+  <% end %>
+
+  <hr>
+
+  <%= link_to edit_restaurant_path, class: "text-decoration-none" do %>
+    <i class="fa-solid fa-pen-to-square"></i> Edit this restaurant
+  <% end %>
+
+  <hr>
+
+  <%= link_to navigate_restaurant_path, class: "text-decoration-none" do %>
+    <i class="fa-solid fa-pen-to-square"></i> navigate to this restaurant
+  <% end %>
+</div>

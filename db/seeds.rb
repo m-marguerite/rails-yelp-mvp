@@ -10,6 +10,9 @@
 require 'faker'
 CATEGORIES = [ "chinese", "italian", "japanese", "french", "belgian" ]
 
+puts "Cleaning database..."
+Restaurant.destroy_all
+
 puts 'Creating 5 fake restaurants...'
 5.times do
   restaurant = Restaurant.new(
